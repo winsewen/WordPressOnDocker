@@ -25,3 +25,15 @@
 Перейти по адресу http://172.17.0.2:3000  
 Логин: admin  
 Пароль: admin  
+  
+Перейти "Configuration" -> "Data Sources"  
+Нажать "Add data source"  
+Нажать "Prometheus"  
+Указать URL: http://localhost:9090  
+Нажать "Save & Test"  
+  
+Затем перейти "Dashboards" -> "Manage"  
+Нажать "Import"  
+Указать 1860 и нажать "Load"  
+В поле "Prometheus" выбрать "Prometheus"  
+и нажать "Import"  
