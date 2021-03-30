@@ -35,5 +35,5 @@
 Затем перейти "Dashboards" -> "Manage"  
 Нажать "Import"  
 Указать 1860 и нажать "Load"  
-В поле "Prometheus" выбрать "Prometheus"  
+В поле "Prometheus" выбрать "Prometheus (default)"  
 и нажать "Import"  
