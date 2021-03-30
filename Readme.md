@@ -11,7 +11,7 @@
 `docker build -t wordpress-test .
 `  
 Запускаем контейнер:  
-`docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker run -itd --name wordpress7 wordpress-test)`
+`docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker run -itd -h wordpress --name wordpresstest wordpress-test)`
 
 Результатом выполнения команды будет IP-адрес контейнера, например: 172.17.0.2  
 Для того, чтобы блог был доступен по адресу blog.example.com, необходимо прописать соотвествующую DNS-запись или отредактировать файл hosts  
