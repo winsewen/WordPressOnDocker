@@ -23,7 +23,7 @@ RUN echo sed -i \'s#/etc/run-once.sh##g\' /etc/rc.local | tee -a /etc/run-once.s
 RUN chmod +x /etc/run-once.sh
 
 RUN wget https://dl.grafana.com/oss/release/grafana_7.5.2_amd64.deb
-RUN apt install ./grafana_7.5.2_amd64.deb
+RUN apt install -y ./grafana_7.5.2_amd64.deb
 RUN rm ./grafana_7.5.2_amd64.deb
 
 RUN wget https://github.com/prometheus/prometheus/releases/download/v2.25.2/prometheus-2.25.2.linux-amd64.tar.gz
