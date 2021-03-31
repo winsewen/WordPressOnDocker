@@ -13,9 +13,11 @@ RUN cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-c
 RUN sed -i 's|database_name_here|wordpress|g' /var/www/html/wordpress/wp-config.php
 RUN sed -i 's|username_here|wordpress|g' /var/www/html/wordpress/wp-config.php
 RUN sed -i 's|password_here|wordpress|g' /var/www/html/wordpress/wp-config.php
-RUN sed -i 's|впишите сюда уникальную фразу|heKEATaTVF4uoX34zK9p9gLylskTTbCU|g' /var/www/html/wordpress/wp-config.php
+RUN sed -i 's|впишите сюда уникальную фразу|secret-key-123456|g' /var/www/html/wordpress/wp-config.php
 RUN chown www-data:www-data /var/www/html/wordpress -R
 
+RUN echo '#!/bin/bash' | tee -a /etc/run-once.sh
+RUN echo 'for i in {1..8}; do sed -i "0,/secret-key-123456/s/secret-key-123456/`dd if=/dev/urandom count=4 2>/dev/null | md5sum | cut -f 1 -d " "`/" /var/www/html/wordpress/wp-config.php; done' | tee -a /etc/run-once.sh
 RUN echo mysql -e \"CREATE DATABASE wordpress /*\!40100 DEFAULT CHARACTER SET utf8 */\;\" | tee -a /etc/run-once.sh
 RUN echo mysql -e \"CREATE USER wordpress@localhost IDENTIFIED BY \'wordpress\'\;\" | tee -a /etc/run-once.sh
 RUN echo mysql -e \"GRANT ALL PRIVILEGES ON wordpress.* TO \'wordpress\'@\'localhost\'\;\" | tee -a /etc/run-once.sh
