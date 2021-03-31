@@ -38,3 +38,7 @@
 В поле "Prometheus" выбрать "Prometheus (default)"  
 и нажать "Import"  
 Выбрать период отображения "Last 5 minutes"
+  
+![изображение](https://user-images.githubusercontent.com/81648644/113113104-a463c280-9212-11eb-86d6-7a62e873eec7.png)  
+  
+
