@@ -62,8 +62,8 @@ RUN sed -i "s|- job_name: 'prometheus'|- job_name: 'node'|g" /etc/prometheus/pro
 RUN sed -i 's|localhost:9090|localhost:9100|g' /etc/prometheus/prometheus.yml
 
 RUN echo '#!/bin/bash' | tee /etc/rc.local
-RUN echo '/etc/init.d/nginx restart' | tee -a /etc/rc.local
-RUN echo '/etc/init.d/php7.4-fpm restart' | tee -a /etc/rc.local
+RUN echo '/etc/init.d/nginx start' | tee -a /etc/rc.local
+RUN echo '/etc/init.d/php7.4-fpm start' | tee -a /etc/rc.local
 RUN echo '/etc/init.d/mysql start' | tee -a /etc/rc.local
 RUN echo '/etc/init.d/grafana-server start' | tee -a /etc/rc.local
 RUN echo '/etc/run-once.sh' | tee -a /etc/rc.local
